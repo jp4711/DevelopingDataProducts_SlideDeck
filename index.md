@@ -11,20 +11,20 @@ mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
 ---
 
-## Shiny - What is it
+## A Shiny Application with Progress Indicator
 
- - Shiny is a Data Product used within R
- - Shiny is a platform for creating interactive R programs
- - Shiny is made by R Studio
- - Shiny has extension for new features and customization
- - ShinyIncubator for additional feaures
+ - Demonstrates the use of progress indicator during long running task
+ - Downloads data "pml" from internet if not on machine
+ - Loads data set into memory
+ - Shows progress indicator when loading 'pml' data set into memory
+ - Show summary info of loaded data set
+ - Shows first n rows of data set
+ 
  
 How to create Shiny App With Progress Indicator
- - read tutorial
  - create ui.R
  - create server.R
  - load library ShinyIncubator
-
 
 --- .class #id 
 
@@ -60,7 +60,6 @@ withProgress(session, min = 0, max = 10, {
       setProgress(message = "Training the model:")
 ```
 
-
 ---
 ## Server Side Example Code
 
@@ -83,12 +82,9 @@ withProgress(session, min = 0, max = 10, {
   }
 ```
 
-
 ---
 ## Conclusion
 
-With Shiny and ShinyIncubator
- - long running processes can be created
- - and progress shown during execution time
+With Shiny and ShinyIncubator long running processes can be created and progress shown during execution time
 
 ShinyIncubator is under development and new features are added.

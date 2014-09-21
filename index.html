@@ -42,21 +42,21 @@
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
   <hgroup>
-    <h2>Shiny - What is it</h2>
+    <h2>A Shiny Application with Progress Indicator</h2>
   </hgroup>
   <article data-timings="">
     <ul>
-<li>Shiny is a Data Product used within R</li>
-<li>Shiny is a platform for creating interactive R programs</li>
-<li>Shiny is made by R Studio</li>
-<li>Shiny has extension for new features and customization</li>
-<li>ShinyIncubator for additional feaures</li>
+<li>Demonstrates the use of progress indicator during long running task</li>
+<li>Downloads data &quot;pml&quot; from internet if not on machine</li>
+<li>Loads data set into memory</li>
+<li>Shows progress indicator when loading &#39;pml&#39; data set into memory</li>
+<li>Show summary info of loaded data set</li>
+<li>Shows first n rows of data set</li>
 </ul>
 
 <p>How to create Shiny App With Progress Indicator</p>
 
 <ul>
-<li>read tutorial</li>
 <li>create ui.R</li>
 <li>create server.R</li>
 <li>load library ShinyIncubator</li>
@@ -147,12 +147,7 @@ withProgress(session, min = 0, max = 10, {
     <h2>Conclusion</h2>
   </hgroup>
   <article data-timings="">
-    <p>With Shiny and ShinyIncubator</p>
-
-<ul>
-<li>long running processes can be created</li>
-<li>and progress shown during execution time</li>
-</ul>
+    <p>With Shiny and ShinyIncubator long running processes can be created and progress shown during execution time</p>
 
 <p>ShinyIncubator is under development and new features are added.</p>
 
@@ -166,7 +161,7 @@ withProgress(session, min = 0, max = 10, {
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Shiny - What is it'>
+        data-slide=1 title='A Shiny Application with Progress Indicator'>
          1
       </a>
     </li>
