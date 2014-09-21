@@ -16,11 +16,14 @@ knit        : slidify::knit2slides
  - Shiny is a Data Product used within R
  - Shiny is a platform for creating interactive R programs
  - Shiny is made by R Studio
+ - Shiny has extension for new features and customization
+ - ShinyIncubator for additional feaures
  
-###How to create Shiny App
+How to create Shiny App With Progress Indicator
  - read tutorial
  - create ui.R
  - create server.R
+ - load library ShinyIncubator
 
 
 --- .class #id 
@@ -28,24 +31,67 @@ knit        : slidify::knit2slides
 ## Progress Indicator within Shiny 
 
  - in ui.R
-```{r}
+```{r, eval=FALSE}
+library(shinyIncubator)
+
+# and inside the layout
+
+  progressInit(),
+
+
+```
+
+This will initiate progress indicator
+
+---
+## Progress Indicator Server Code
+
+### Inside server.R code:
+ - call withProgress to create dialog with progress bar
+ - update the progress bar periodicially
+
+#### Sample Code
+```{r, eval=FALSE}
+
+library(shinyIncubator)
+
+# and inside the server code
+
+withProgress(session, min = 0, max = 10, {
+      setProgress(message = "Training the model:")
 
 ```
 
 
 ---
-## Slide 3
+## Server Side Example Code
 
-slide three
+ - an long running operation
+ 
+```{r, eval=FALSE}
+
+  anExpensiveOperation <- function() {
+    #
+    # sdet min/max and setProgress(value=x) for progress bar
+    withProgress(session, min = 0, max = 10, {
+      setProgress(message = "Training the model:")
+      for (i in 1:10) {
+        setProgress(value = i)
+        # wait more for background process to complete
+        if (!hasMyTaskCompleted())
+            Sys.sleep(1.0)
+      }
+    })
+  }
+
+```
 
 
 ---
-## Slide 4
+## Conclusion
 
-slide four
+With Shiny and ShinyIncubator
+ - long running processes can be created
+ - and progress shown during execution time
 
-
----
-## Slide 5
-
-Conclusion
+ShinyIncubator is under development and new features are added.

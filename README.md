@@ -1,2 +1,2 @@
-PracticalMachineLearning_SlideDeck
+DevelopingDataProducts_SlideDeck
 ==================================

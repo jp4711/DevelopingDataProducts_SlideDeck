@@ -48,12 +48,18 @@
     <ul>
 <li>Shiny is a Data Product used within R</li>
 <li>Shiny is a platform for creating interactive R programs</li>
-<li><p>Shiny is made by R Studio</p>
+<li>Shiny is made by R Studio</li>
+<li>Shiny has extension for new features and customization</li>
+<li>ShinyIncubator for additional feaures</li>
+</ul>
 
-<p>####How to create Shiny App</p></li>
-<li><p>read tutorial</p></li>
-<li><p>create ui.R</p></li>
-<li><p>create server.R</p></li>
+<p>How to create Shiny App With Progress Indicator</p>
+
+<ul>
+<li>read tutorial</li>
+<li>create ui.R</li>
+<li>create server.R</li>
+<li>load library ShinyIncubator</li>
 </ul>
 
   </article>
@@ -69,16 +75,40 @@
 <li>in ui.R</li>
 </ul>
 
+<pre><code class="r">library(shinyIncubator)
+
+# and inside the layout
+
+  progressInit(),
+</code></pre>
+
+<p>This will initiate progress indicator</p>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-3" style="background:;">
   <hgroup>
-    <h2>Slide 3</h2>
+    <h2>Progress Indicator Server Code</h2>
   </hgroup>
   <article data-timings="">
-    <p>slide three</p>
+    <h3>Inside server.R code:</h3>
+
+<ul>
+<li>call withProgress to create dialog with progress bar</li>
+<li>update the progress bar periodicially</li>
+</ul>
+
+<h4>Sample Code</h4>
+
+<pre><code class="r">library(shinyIncubator)
+
+# and inside the server code
+
+withProgress(session, min = 0, max = 10, {
+      setProgress(message = &quot;Training the model:&quot;)
+</code></pre>
 
   </article>
   <!-- Presenter Notes -->
@@ -86,10 +116,27 @@
 
 <slide class="" id="slide-4" style="background:;">
   <hgroup>
-    <h2>Slide 4</h2>
+    <h2>Server Side Example Code</h2>
   </hgroup>
   <article data-timings="">
-    <p>slide four</p>
+    <ul>
+<li>an long running operation</li>
+</ul>
+
+<pre><code class="r">  anExpensiveOperation &lt;- function() {
+    #
+    # sdet min/max and setProgress(value=x) for progress bar
+    withProgress(session, min = 0, max = 10, {
+      setProgress(message = &quot;Training the model:&quot;)
+      for (i in 1:10) {
+        setProgress(value = i)
+        # wait more for background process to complete
+        if (!hasMyTaskCompleted())
+            Sys.sleep(1.0)
+      }
+    })
+  }
+</code></pre>
 
   </article>
   <!-- Presenter Notes -->
@@ -97,10 +144,17 @@
 
 <slide class="" id="slide-5" style="background:;">
   <hgroup>
-    <h2>Slide 5</h2>
+    <h2>Conclusion</h2>
   </hgroup>
   <article data-timings="">
-    <p>Conclusion</p>
+    <p>With Shiny and ShinyIncubator</p>
+
+<ul>
+<li>long running processes can be created</li>
+<li>and progress shown during execution time</li>
+</ul>
+
+<p>ShinyIncubator is under development and new features are added.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -124,19 +178,19 @@
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='Slide 3'>
+        data-slide=3 title='Progress Indicator Server Code'>
          3
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='Slide 4'>
+        data-slide=4 title='Server Side Example Code'>
          4
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=5 title='Slide 5'>
+        data-slide=5 title='Conclusion'>
          5
       </a>
     </li>
