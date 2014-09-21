@@ -1,0 +1,51 @@
+---
+title       : Developing Data Products Slide Deck
+subtitle    : Using progress inidcator in Shiny
+author      : jp4711
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Shiny - What is it
+
+ - Shiny is a Data Product used within R
+ - Shiny is a platform for creating interactive R programs
+ - Shiny is made by R Studio
+ 
+###How to create Shiny App
+ - read tutorial
+ - create ui.R
+ - create server.R
+
+
+--- .class #id 
+
+## Progress Indicator within Shiny 
+
+ - in ui.R
+```{r}
+
+```
+
+
+---
+## Slide 3
+
+slide three
+
+
+---
+## Slide 4
+
+slide four
+
+
+---
+## Slide 5
+
+Conclusion
